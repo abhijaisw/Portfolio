@@ -58,10 +58,6 @@ if response.status == "VERIFIED":
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>API-First Infrastructure</span>
-        </div>
         <h2 class="section-title">
           Connects seamlessly with <br/>
           <span class="text-gradient-cyan">your existing financial stack.</span>
@@ -76,7 +72,7 @@ if response.status == "VERIFIED":
         <div class="glass-panel" style="padding: 32px;">
           <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan); margin-bottom:20px; display:flex; justify-content:space-between;">
             <span>SYSTEM TOPOLOGY</span>
-            <span>ENDPOINTS: v1.4</span>
+            <span>REST & GRAPHQL GATEWAY</span>
           </div>
 
           <!-- Architecture Visual Tree -->
@@ -119,7 +115,7 @@ if response.status == "VERIFIED":
           </div>
         </div>
 
-        <!-- Interactive API Code Explorer -->
+        <!-- Interactive API Code Explorer with Taste Skill Specular Sheen -->
         <div class="api-code-block">
           <div class="api-tabs-header">
             <div class="code-tabs">
@@ -164,11 +160,21 @@ if response.status == "VERIFIED":
     copyBtn?.addEventListener('click', () => {
       const code = codeSnippets[currentLang] || '';
       navigator.clipboard.writeText(code).then(() => {
-        const span = copyBtn.querySelector('span');
-        if (span) span.textContent = 'Copied!';
+        copyBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span style="color:#10B981; font-weight:600;">Copied</span>
+        `;
         setTimeout(() => {
-          if (span) span.textContent = 'Copy';
-        }, 1500);
+          copyBtn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span>Copy</span>
+          `;
+        }, 1800);
       });
     });
   }, 0);

@@ -11,7 +11,6 @@ export function createHero() {
         <!-- Left Editorial Content -->
         <div class="hero-content">
           <div class="badge-pill">
-            <span class="pulse-dot"></span>
             <span>All-in-One KYC Ecosystem</span>
           </div>
 
@@ -21,12 +20,12 @@ export function createHero() {
           </h1>
 
           <p class="hero-subtitle">
-            VerifiCore unifies digital, electronic, central, periodic, and offline KYC into one intelligent identity platform. Built for compliance-critical financial infrastructure.
+            VerifiCore unifies digital, electronic, central, periodic, and offline KYC into one intelligent identity platform for compliance-critical financial infrastructure.
           </p>
 
           <div class="hero-ctas">
             <button type="button" class="btn btn-primary open-demo-modal" id="hero-primary-cta">
-              <span>Request a Demo</span>
+              <span>Request Demo</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14m-7-7 7 7-7 7"/>
               </svg>
@@ -37,27 +36,6 @@ export function createHero() {
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </a>
-          </div>
-
-          <div class="hero-meta-bar" role="complementary" aria-label="Platform Highlights">
-            <div class="meta-item">
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>Sub-30s Average Verification</span>
-            </div>
-            <div class="meta-item">
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>99.8% Precision Rate</span>
-            </div>
-            <div class="meta-item">
-              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>Zero Data Silos</span>
-            </div>
           </div>
         </div>
 

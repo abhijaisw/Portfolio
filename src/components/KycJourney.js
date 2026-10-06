@@ -147,10 +147,6 @@ export function createKycJourney() {
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>End-to-End Lifecycle</span>
-        </div>
         <h2 class="section-title">
           From identity capture to <br/>
           <span class="text-gradient-cyan">continuous compliance.</span>
@@ -167,7 +163,7 @@ export function createKycJourney() {
             <div class="journey-step-btn ${idx === 0 ? 'active' : ''}" data-index="${idx}" role="button" tabindex="0" aria-label="Step ${st.num}: ${st.title}">
               <div class="step-num">${st.num}</div>
               <div class="step-info">
-                <h4>${st.title} — ${st.subtitle}</h4>
+                <h4>${st.title}: ${st.subtitle}</h4>
                 <p>${st.desc}</p>
               </div>
             </div>
@@ -182,7 +178,7 @@ export function createKycJourney() {
                 <circle cx="12" cy="12" r="10"/>
                 <polyline points="12 6 12 12 14 14"/>
               </svg>
-              <span id="console-stage-title">STAGE 01 — CAPTURE</span>
+              <span id="console-stage-title">STAGE 01: CAPTURE</span>
             </div>
             <div class="console-stage-badge" id="console-stage-badge">PHASE ACTIVE</div>
           </div>
@@ -216,7 +212,7 @@ export function createKycJourney() {
         const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
         const stage = stages[idx];
         if (stage) {
-          stageTitle.textContent = `STAGE ${stage.num} — ${stage.title.toUpperCase()}`;
+          stageTitle.textContent = `STAGE ${stage.num}: ${stage.title.toUpperCase()}`;
           visualContent.innerHTML = stage.renderVisual();
           statusText.textContent = stage.statusText;
           telemetry.textContent = stage.telemetry;

@@ -17,11 +17,6 @@ export function createRekycSection() {
       <div class="feature-split-section reverse">
         <!-- Left Column: Copy & Value Proposition -->
         <div class="feature-copy-col">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Re-KYC • Perpetual Compliance</span>
-          </div>
-
           <h2 class="section-title">
             Re-KYC. <br/>
             <span class="text-gradient-cyan">Keep customer information continuously current.</span>

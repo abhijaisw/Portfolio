@@ -8,11 +8,6 @@ export function createEkycSection() {
       <div class="feature-split-section reverse">
         <!-- Left Column: Copy & Value Proposition -->
         <div class="feature-copy-col">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Electronic KYC • Sub-Second</span>
-          </div>
-
           <h2 class="section-title">
             Electronic KYC. <br/>
             <span class="text-gradient-cyan">Fast, digital identity verification when speed matters.</span>

@@ -94,10 +94,6 @@ export function createEcosystem() {
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>Unified Architecture</span>
-        </div>
         <h2 class="section-title">
           Five KYC capabilities. <br/>
           <span class="text-gradient-cyan">One unified platform.</span>
@@ -139,7 +135,7 @@ export function createEcosystem() {
         <!-- Real-time Capability Inspector Drawer -->
         <div class="ecosystem-inspector" id="node-inspector">
           <div class="inspector-meta">
-            <h4 id="inspector-name">${capabilities[0].name} — ${capabilities[0].tag}</h4>
+            <h4 id="inspector-name">${capabilities[0].name}: ${capabilities[0].tag}</h4>
             <p class="inspector-desc" id="inspector-desc">${capabilities[0].desc}</p>
             <div class="inspector-specs">
               <div class="spec-row">
@@ -210,7 +206,7 @@ export function createEcosystem() {
         const selectedId = node.getAttribute('data-id');
         const cap = capabilities.find(c => c.id === selectedId);
         if (cap) {
-          nameEl.textContent = `${cap.name} — ${cap.tag}`;
+          nameEl.textContent = `${cap.name}: ${cap.tag}`;
           descEl.textContent = cap.desc;
           protocolEl.textContent = cap.protocol;
           throughputEl.textContent = cap.throughput;

@@ -6,10 +6,6 @@ export function createImpactCalculator() {
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>ROI & Efficiency Modeling</span>
-        </div>
         <h2 class="section-title">
           See the impact of <br/>
           <span class="text-gradient-cyan">faster, automated KYC.</span>

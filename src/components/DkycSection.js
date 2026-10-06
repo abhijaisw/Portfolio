@@ -8,11 +8,6 @@ export function createDkycSection() {
       <div class="feature-split-section">
         <!-- Left Column: Copy & Value Proposition -->
         <div class="feature-copy-col">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Digital KYC • V-CIP Ready</span>
-          </div>
-
           <h2 class="section-title">
             Digital KYC. <br/>
             <span class="text-gradient-cyan">Verify customers remotely without compromising trust.</span>

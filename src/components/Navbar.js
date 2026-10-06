@@ -86,14 +86,20 @@ export function createNavbar() {
     document.body.appendChild(drawer);
   }
 
-  // Scroll listener for backdrop blur
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
+  // Use IntersectionObserver on sentinel instead of unthrottled scroll listener
+  setTimeout(() => {
+    const sentinel = document.getElementById('nav-sentinel');
+    if (sentinel) {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { threshold: 0 });
+      observer.observe(sentinel);
     }
-  });
+  }, 0);
 
   // Mobile drawer logic
   setTimeout(() => {

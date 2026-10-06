@@ -6,10 +6,6 @@ export function createDashboard() {
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>VerifiCore Control Center</span>
-        </div>
         <h2 class="section-title">
           Mission control for <br/>
           <span class="text-gradient-cyan">enterprise compliance operations.</span>

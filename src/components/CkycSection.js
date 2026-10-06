@@ -8,11 +8,6 @@ export function createCkycSection() {
       <div class="feature-split-section">
         <!-- Left Column: Copy & Value Proposition -->
         <div class="feature-copy-col">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Central KYC Registry • Ecosystem Portability</span>
-          </div>
-
           <h2 class="section-title">
             Central KYC. <br/>
             <span class="text-gradient-cyan">One verified identity. Reusable across the financial ecosystem.</span>

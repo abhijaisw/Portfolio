@@ -20,7 +20,6 @@ export function createDemoModal() {
       <div id="modal-form-view">
         <div style="margin-bottom: 24px;">
           <div class="badge-pill" style="margin-bottom: 10px;">
-            <span class="pulse-dot"></span>
             <span>Enterprise Briefing</span>
           </div>
           <h3 class="font-serif" style="font-size: 1.8rem; color: var(--white); margin-bottom: 6px;">

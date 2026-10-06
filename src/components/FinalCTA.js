@@ -6,11 +6,6 @@ export function createFinalCTA() {
   section.innerHTML = `
     <div class="container">
       <div class="cta-box-inner">
-        <div class="badge-pill">
-          <span class="pulse-dot"></span>
-          <span>Next-Generation Identity Infrastructure</span>
-        </div>
-
         <h2 class="display-title" style="margin-bottom: 20px; max-width: 780px;">
           Ready to <span class="text-gradient-cyan">modernize KYC?</span>
         </h2>
@@ -21,7 +16,7 @@ export function createFinalCTA() {
 
         <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; margin-bottom:32px;">
           <button type="button" class="btn btn-primary open-demo-modal" id="cta-bottom-demo">
-            <span>Request an Enterprise Demo</span>
+            <span>Request Demo</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14m-7-7 7 7-7 7"/>
             </svg>

@@ -8,11 +8,6 @@ export function createOfflineKyc() {
       <div class="feature-split-section">
         <!-- Left Column: Copy & Value Proposition -->
         <div class="feature-copy-col">
-          <div class="badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Flagship Capability • Zero Latency</span>
-          </div>
-
           <h2 class="section-title">
             KYC without connectivity. <br/>
             <span class="text-gradient-cyan">Bring secure identity verification to rural, remote, and low-connectivity environments.</span>
