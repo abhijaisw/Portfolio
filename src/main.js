@@ -12,6 +12,8 @@ import { createCkycSection } from './components/CkycSection.js';
 import { createRekycSection } from './components/RekycSection.js';
 import { createOfflineKyc } from './components/OfflineKyc.js';
 import { createSecurity } from './components/Security.js';
+import { createGovernance } from './components/Governance.js';
+import { createComparisonTable } from './components/ComparisonTable.js';
 import { createArchitecture } from './components/Architecture.js';
 import { createDashboard } from './components/Dashboard.js';
 import { createImpactCalculator } from './components/ImpactCalculator.js';
@@ -39,6 +41,7 @@ if (app) {
   main.appendChild(createHero());
   main.appendChild(createTrustBar());
   main.appendChild(createEcosystem());
+  main.appendChild(createGovernance());
   main.appendChild(createKycJourney());
   main.appendChild(createDkycSection());
   main.appendChild(createEkycSection());
@@ -46,6 +49,7 @@ if (app) {
   main.appendChild(createRekycSection());
   main.appendChild(createOfflineKyc());
   main.appendChild(createSecurity());
+  main.appendChild(createComparisonTable());
   main.appendChild(createArchitecture());
   main.appendChild(createDashboard());
   main.appendChild(createImpactCalculator());
@@ -128,16 +132,18 @@ const statsObserver = new IntersectionObserver((entries, observer) => {
           if (isDecimal) {
             counter.textContent = currentVal.toFixed(1) + suffix;
           } else {
-            counter.textContent = Math.floor(currentVal) + suffix;
+            counter.textContent = Math.floor(currentVal).toLocaleString() + suffix;
           }
 
           if (progress < 1) {
             requestAnimationFrame(updateCounter);
           } else {
-            if (suffix === 's') {
+            if (suffix === 'ms') {
+              counter.textContent = `< 850ms`;
+            } else if (suffix === 's') {
               counter.textContent = `< 30s`;
             } else {
-              counter.textContent = (isDecimal ? targetVal.toFixed(1) : targetVal) + suffix;
+              counter.textContent = (isDecimal ? targetVal.toFixed(1) : targetVal.toLocaleString()) + suffix;
             }
           }
         }

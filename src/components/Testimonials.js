@@ -28,17 +28,17 @@ export function createTestimonials() {
             </div>
 
             <blockquote class="font-serif" style="font-size:clamp(1.25rem, 2.2vw, 1.7rem); line-height:1.45; color:var(--white); margin-bottom:32px;">
-              “VerifiCore has transformed the way our risk and compliance teams approach identity verification. Consolidating video D-KYC and Central C-KYC into one unified API reduced our applicant drop-off by over 40% while hardening our AML risk posture.”
+              “VerifiCore has transformed how our risk and compliance teams execute identity verification. Consolidating CERSAI CKYCRR 2.0 bulk processing and Aadhaar e-KYC into one unified engine reduced our applicant drop-off by over 40% while automating full UIDAI PII masking.”
             </blockquote>
           </div>
 
           <div class="testimonial-author" style="border-top-color:rgba(0, 212, 255, 0.25);">
             <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, rgba(0,212,255,0.2), rgba(10,37,64,0.9)); border:1px solid var(--cyan); display:flex; align-items:center; justify-content:center; color:var(--cyan); font-family:var(--font-mono); font-weight:700; font-size:1rem;">
-              VC
+              VP
             </div>
             <div>
-              <div class="author-role" style="font-size:0.95rem; font-weight:600; color:var(--white);">[Chief Risk Officer]</div>
-              <div class="author-org" style="color:var(--muted); font-size:0.85rem;">[Tier-1 Commercial Banking Institution]</div>
+              <div class="author-role" style="font-size:0.95rem; font-weight:600; color:var(--white);">Executive Vice President, Risk & Compliance</div>
+              <div class="author-org" style="color:var(--muted); font-size:0.85rem;">Leading Private Sector Bank</div>
             </div>
           </div>
         </div>
@@ -48,15 +48,15 @@ export function createTestimonials() {
           <!-- Card 2 -->
           <div class="testimonial-card">
             <div class="quote-text font-serif">
-              “The Offline Mobile KYC capability was the exact breakthrough our field teams needed. We can now onboard agricultural micro-borrowers in deep rural areas with zero connectivity and 100% cryptographic confidence.”
+              “The Offline Mobile KYC capability was the exact breakthrough our field teams needed. We onboard agricultural micro-borrowers across rural branches with zero connectivity and complete cryptographic audit certainty upon sync.”
             </div>
             <div class="testimonial-author">
               <div style="width:36px; height:36px; border-radius:50%; background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.3); display:flex; align-items:center; justify-content:center; color:var(--cyan); font-family:var(--font-mono); font-size:0.8rem; font-weight:700;">
-                MFI
+                NB
               </div>
               <div>
-                <div class="author-role">[Head of Rural Operations]</div>
-                <div class="author-org">[Leading Microfinance & NBFC Group]</div>
+                <div class="author-role">Head of Rural Operations & Microfinance</div>
+                <div class="author-org">Tier-1 NBFC & Financial Inclusion Group</div>
               </div>
             </div>
           </div>
@@ -64,15 +64,15 @@ export function createTestimonials() {
           <!-- Card 3 -->
           <div class="testimonial-card">
             <div class="quote-text font-serif">
-              “Managing periodic Re-KYC used to consume dozens of manual review officers. VerifiCore's automated event-driven triggers turned our multi-week compliance cycle into a continuous, frictionless background loop.”
+              “Managing periodic Re-KYC across millions of accounts used to consume dozens of manual review officers. VerifiCore's risk-calibrated triggers turned our multi-week cycle into a seamless, automated background loop.”
             </div>
             <div class="testimonial-author">
               <div style="width:36px; height:36px; border-radius:50%; background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.3); display:flex; align-items:center; justify-content:center; color:var(--cyan); font-family:var(--font-mono); font-size:0.8rem; font-weight:700;">
-                CMP
+                CO
               </div>
               <div>
-                <div class="author-role">[Director of Digital Compliance]</div>
-                <div class="author-org">[Global Fintech & Wealth Platform]</div>
+                <div class="author-role">Chief Compliance Officer</div>
+                <div class="author-org">Digital Banking & Wealth Platform</div>
               </div>
             </div>
           </div>

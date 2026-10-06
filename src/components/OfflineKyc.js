@@ -81,7 +81,7 @@ export function createOfflineKyc() {
               </div>
               <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
                 <span style="color:var(--muted);">DOCUMENTS:</span>
-                <span style="color:var(--success);">✓ Captured (National ID)</span>
+                <span style="color:var(--success);">✓ Captured (Aadhaar Offline XML / PAN)</span>
               </div>
               <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
                 <span style="color:var(--muted);">LOCAL ENCRYPTION:</span>

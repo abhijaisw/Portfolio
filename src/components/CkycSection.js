@@ -14,7 +14,7 @@ export function createCkycSection() {
           </h2>
 
           <p class="section-subtitle">
-            Stop forcing existing customers to re-upload passports and identity proofs for every new account. VerifiCore interfaces with the Central KYC Registry, enabling seamless cross-institution portability with customer consent.
+            Stop forcing existing customers to re-submit physical documents and repeat KYC steps for every new account. VerifiCore interfaces with CERSAI CKYCRR 2.0, enabling seamless cross-institution portability with customer consent.
           </p>
 
           <ul class="feature-list" role="list">

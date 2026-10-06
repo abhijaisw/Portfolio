@@ -19,14 +19,11 @@ export function createDemoModal() {
 
       <div id="modal-form-view">
         <div style="margin-bottom: 24px;">
-          <div class="badge-pill" style="margin-bottom: 10px;">
-            <span>Enterprise Briefing</span>
-          </div>
           <h3 class="font-serif" style="font-size: 1.8rem; color: var(--white); margin-bottom: 6px;">
-            Request a VerifiCore Demo
+            Request Enterprise Sandbox
           </h3>
           <p style="font-size: 0.88rem; color: var(--muted);">
-            Connect with our identity infrastructure architects to design your custom KYC pipeline.
+            Provision staging credentials for CERSAI CKYCRR 2.0, UIDAI Aadhaar e-KYC, and DigiLocker microservices.
           </p>
         </div>
 
@@ -37,52 +34,57 @@ export function createDemoModal() {
           </div>
 
           <div class="form-group">
-            <label for="demo-email">Corporate Work Email *</label>
-            <input type="email" id="demo-email" class="form-input" placeholder="name@company.com" required />
+            <label for="demo-email">Institutional Work Email *</label>
+            <input type="email" id="demo-email" class="form-input" placeholder="name@bank.com" required />
           </div>
 
           <div class="form-group">
-            <label for="demo-org-type">Organization Type *</label>
+            <label for="demo-org-type">Organization Category *</label>
             <select id="demo-org-type" class="form-select" required>
               <option value="" disabled selected>Select category</option>
-              <option value="bank">Tier-1 Commercial Bank</option>
-              <option value="nbfc">NBFC & Microfinance</option>
-              <option value="fintech">Fintech & Neobank</option>
-              <option value="insurance">Insurance Provider</option>
+              <option value="bank">Scheduled Commercial Bank</option>
+              <option value="nbfc">Tier-1 NBFC & Microfinance</option>
+              <option value="fintech">Regulated FinTech & Neobank</option>
+              <option value="insurance">Life & General Insurance</option>
               <option value="lending">Digital Lending Platform</option>
               <option value="wealth">Wealth & Asset Management</option>
+              <option value="hfc">Housing Finance Company (HFC)</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Capabilities of Interest</label>
+            <label>Staging Microservices Needed</label>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px;">
               <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
-                <input type="checkbox" name="caps" value="dkyc" checked style="accent-color: var(--cyan);" />
-                <span>D-KYC (Video & AI)</span>
+                <input type="checkbox" name="caps" value="ckyc" checked style="accent-color: var(--cyan);" />
+                <span>CKYC Bulk 2.0 (CERSAI)</span>
               </label>
               <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
                 <input type="checkbox" name="caps" value="ekyc" checked style="accent-color: var(--cyan);" />
-                <span>e-KYC (Govt OTP)</span>
+                <span>Aadhaar e-KYC (UIDAI)</span>
               </label>
               <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
-                <input type="checkbox" name="caps" value="ckyc" checked style="accent-color: var(--cyan);" />
-                <span>C-KYC (Central Registry)</span>
+                <input type="checkbox" name="caps" value="digilocker" checked style="accent-color: var(--cyan);" />
+                <span>DigiLocker Gateway</span>
               </label>
               <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
-                <input type="checkbox" name="caps" value="rekyc" style="accent-color: var(--cyan);" />
-                <span>Re-KYC (Continuous)</span>
+                <input type="checkbox" name="caps" value="dkyc" style="accent-color: var(--cyan);" />
+                <span>Digital V-CIP Video</span>
               </label>
               <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
-                <input type="checkbox" name="caps" value="offline" checked style="accent-color: var(--cyan);" />
-                <span>Offline Mobile KYC</span>
+                <input type="checkbox" name="caps" value="rekyc" checked style="accent-color: var(--cyan);" />
+                <span>Re-KYC Remediation</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer;">
+                <input type="checkbox" name="caps" value="makerchecker" checked style="accent-color: var(--cyan);" />
+                <span>4-Eyes Maker-Checker</span>
               </label>
             </div>
           </div>
 
           <div style="margin-top: 24px;">
             <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <span>Confirm Demo Booking</span>
+              <span>Provision Sandbox Environment</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14m-7-7 7 7-7 7"/>
               </svg>
@@ -100,14 +102,14 @@ export function createDemoModal() {
         </div>
 
         <h3 class="font-serif" style="font-size: 1.8rem; color: var(--white); margin-bottom: 8px;">
-          Demo Priority Confirmed!
+          Sandbox Credentials Provisioned!
         </h3>
         <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 24px;">
-          Our enterprise compliance team has received your inquiry. A calendar invitation and sandbox credentials will be delivered to your email.
+          Staging keys and documentation for your designated tenant instance have been generated. An onboarding link with your sandbox credentials has been dispatched.
         </p>
 
         <div style="padding: 14px; background: rgba(10, 37, 64, 0.6); border: 1px dashed var(--border-cyan); border-radius: 10px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--cyan); margin-bottom: 24px;">
-          TICKET REF: <span id="demo-ticket-id">VC-DEMO-8821</span>
+          SANDBOX KEY: <span id="demo-ticket-id">VC-SBX-2026-8821</span>
         </div>
 
         <button type="button" class="btn btn-secondary btn-sm" id="btn-finish-modal" style="width: 100%;">

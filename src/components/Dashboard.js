@@ -39,39 +39,39 @@ export function createDashboard() {
           <div class="dash-stat-card">
             <div class="dash-stat-label">Today's Verifications</div>
             <div class="dash-stat-num">
-              <span id="dash-stat-verifs">2,483</span>
-              <span class="change">+14.2%</span>
+              <span id="dash-stat-verifs">148,290</span>
+              <span class="change">+18.4%</span>
             </div>
           </div>
 
           <div class="dash-stat-card">
-            <div class="dash-stat-label">Success Rate</div>
+            <div class="dash-stat-label">Registry TAT (Instant)</div>
             <div class="dash-stat-num">
-              <span>99.8%</span>
-              <span class="change">Optimal</span>
+              <span>&lt; 850ms</span>
+              <span class="change" style="color:var(--cyan);">Sub-Second</span>
             </div>
           </div>
 
           <div class="dash-stat-card">
-            <div class="dash-stat-label">Average Time</div>
+            <div class="dash-stat-label">Batch Ingestion Scale</div>
             <div class="dash-stat-num">
-              <span>28.4s</span>
-              <span class="change" style="color:var(--cyan);">-3.2s</span>
+              <span>10,000</span>
+              <span class="change" style="color:var(--success);">0 Errors</span>
             </div>
           </div>
 
           <div class="dash-stat-card">
-            <div class="dash-stat-label">Risk Alerts</div>
+            <div class="dash-stat-label">PII Masking Compliance</div>
             <div class="dash-stat-num">
-              <span style="color:#F59E0B;">24</span>
-              <span style="font-size:0.75rem; color:var(--muted);">L-2 Review</span>
+              <span style="color:var(--success);">100%</span>
+              <span style="font-size:0.75rem; color:var(--muted);">UIDAI Certified</span>
             </div>
           </div>
 
           <div class="dash-stat-card">
-            <div class="dash-stat-label">Pending Re-KYC</div>
+            <div class="dash-stat-label">Active Re-KYC Remediation</div>
             <div class="dash-stat-num">
-              <span>1,284</span>
+              <span>4,280</span>
               <span style="font-size:0.75rem; color:var(--cyan);">Auto-Queued</span>
             </div>
           </div>
@@ -83,7 +83,7 @@ export function createDashboard() {
           <div class="chart-panel">
             <div class="panel-header">
               <span>HOURLY VERIFICATION THROUGHPUT (PAST 24H)</span>
-              <span class="text-cyan">PEAK: 420/HR</span>
+              <span class="text-cyan">PEAK: 14,200/HR</span>
             </div>
             <div style="height: 190px; width: 100%; position: relative;">
               <svg viewBox="0 0 500 150" style="width: 100%; height: 100%; overflow: visible;">

@@ -11,27 +11,28 @@ export function createHero() {
         <!-- Left Editorial Content -->
         <div class="hero-content">
           <div class="badge-pill">
-            <span>All-in-One KYC Ecosystem</span>
+            <span class="pulse-dot" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span>
+            <span>Live Batch Reconciliation: 100% Accounted (0 Mismatches)</span>
           </div>
 
           <h1 class="hero-title">
-            <span class="line-serif">One identity.</span>
-            <span class="line-serif highlight-line">Every KYC journey.</span>
+            <span class="line-serif">The Unified KYC Operating System</span>
+            <span class="line-serif highlight-line">for Regulated Institutions.</span>
           </h1>
 
           <p class="hero-subtitle">
-            VerifiCore unifies digital, electronic, central, periodic, and offline KYC into one intelligent identity platform for compliance-critical financial infrastructure.
+            Seamlessly bridge Central CKYC 2.0, Aadhaar e-KYC, DigiLocker, and Digital Onboarding in one multi-tenant, audit-ready platform.
           </p>
 
           <div class="hero-ctas">
             <button type="button" class="btn btn-primary open-demo-modal" id="hero-primary-cta">
-              <span>Request Demo</span>
+              <span>Request Enterprise Sandbox</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14m-7-7 7 7-7 7"/>
               </svg>
             </button>
-            <a href="#ecosystem" class="btn btn-secondary" id="hero-secondary-cta">
-              <span>Explore Platform</span>
+            <a href="#architecture-section" class="btn btn-secondary" id="hero-secondary-cta">
+              <span>Explore API Specs</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
@@ -51,11 +52,11 @@ export function createHero() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                   </svg>
-                  <span>VERIFICORE CORE</span>
+                  <span>CERSAI CKYCRR 2.0</span>
                 </div>
                 <div class="verified-badge">
                   <span class="pulse-dot" style="background:#10B981; box-shadow:0 0 8px #10B981;"></span>
-                  <span>VERIFIED</span>
+                  <span>KIN VERIFIED</span>
                 </div>
               </div>
 
@@ -65,33 +66,33 @@ export function createHero() {
                 </div>
                 <div class="user-details">
                   <h4>Rahul Sharma</h4>
-                  <p>VC-ID: 9482-C901-4428</p>
+                  <p class="font-mono" style="font-size:0.75rem; color:var(--cyan);">KIN: 4002-9188-291034</p>
                 </div>
               </div>
 
               <div class="card-metrics-grid">
                 <div class="metric-box">
-                  <div class="metric-label">KYC Status</div>
+                  <div class="metric-label">Aadhaar (UIDAI)</div>
                   <div class="metric-value success">
-                    <span>● Verified</span>
+                    <span class="font-mono" style="font-size:0.75rem;">XXXX-XXXX-8921</span>
                   </div>
                 </div>
                 <div class="metric-box">
-                  <div class="metric-label">Risk Level</div>
+                  <div class="metric-label">PAN Verification</div>
                   <div class="metric-value">
-                    <span style="color: #00D4FF;">Low (Tier-1)</span>
+                    <span class="font-mono" style="color: #00D4FF; font-size:0.75rem;">ABCDE1234F ✓</span>
                   </div>
                 </div>
                 <div class="metric-box">
-                  <div class="metric-label">Face Match</div>
+                  <div class="metric-label">Passive 3D Match</div>
                   <div class="metric-value">
-                    <span>99.4% Pass</span>
+                    <span>99.7% NIST Pass</span>
                   </div>
                 </div>
                 <div class="metric-box">
-                  <div class="metric-label">Registry Hash</div>
+                  <div class="metric-label">Audit Envelope</div>
                   <div class="metric-value">
-                    <span class="font-mono" style="font-size:0.75rem;">0x7E3...A9F</span>
+                    <span class="font-mono" style="font-size:0.75rem;">SHA-256 SEALED</span>
                   </div>
                 </div>
               </div>
@@ -106,8 +107,8 @@ export function createHero() {
                 </svg>
               </div>
               <div class="orbit-text">
-                <div class="orbit-tag">D-KYC</div>
-                <div class="orbit-val">AI Video Liveness ✓</div>
+                <div class="orbit-tag">CERSAI 2.0</div>
+                <div class="orbit-val">10k Batch / SFTP</div>
               </div>
             </div>
 
@@ -119,8 +120,8 @@ export function createHero() {
                 </svg>
               </div>
               <div class="orbit-text">
-                <div class="orbit-tag">e-KYC</div>
-                <div class="orbit-val">Govt Direct (0.8s)</div>
+                <div class="orbit-tag">UIDAI E-KYC</div>
+                <div class="orbit-val">Sub-850ms OTP</div>
               </div>
             </div>
 
@@ -133,8 +134,8 @@ export function createHero() {
                 </svg>
               </div>
               <div class="orbit-text">
-                <div class="orbit-tag">C-KYC</div>
-                <div class="orbit-val">Central Synced</div>
+                <div class="orbit-tag">4-Eyes Gate</div>
+                <div class="orbit-val">Maker-Checker ✓</div>
               </div>
             </div>
 

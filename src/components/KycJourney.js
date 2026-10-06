@@ -22,7 +22,7 @@ export function createKycJourney() {
             <div style="font-size:0.8rem; color:var(--muted);">Glare Detection: Passed • Edge Alignment: 100%</div>
           </div>
           <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan);">
-            <span>National ID / Passport</span>
+            <span>Officially Valid Documents (Aadhaar / PAN / OVD)</span>
             <span>✓ High Res (300 DPI)</span>
           </div>
         </div>
@@ -34,7 +34,7 @@ export function createKycJourney() {
       subtitle: 'AI Biometrics & Forensic OCR',
       desc: 'Validate official documents, cross-check anti-tamper security foils, and execute 3D passive liveness analysis to eliminate synthetic identity fraud and deepfakes.',
       statusText: 'BIOMETRICS & FORENSICS VALIDATED',
-      telemetry: 'FACE MATCH: 99.4% • LIVENESS: PASS • TAMPER RISK: 0.0%',
+      telemetry: 'FACE MATCH: 99.7% • LIVENESS: PASS • TAMPER RISK: 0.0%',
       renderVisual: () => `
         <div style="width:100%; max-width:380px;">
           <div style="background: rgba(10, 37, 64, 0.5); border: 1px solid var(--border-cyan); border-radius: 14px; padding: 20px; margin-bottom: 14px;">

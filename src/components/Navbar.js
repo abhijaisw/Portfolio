@@ -18,11 +18,11 @@ export function createNavbar() {
       <nav aria-label="Primary Navigation">
         <ul class="nav-links">
           <li><a href="#ecosystem" class="nav-link">Platform</a></li>
-          <li><a href="#dkyc-section" class="nav-link">Solutions</a></li>
-          <li><a href="#journey-section" class="nav-link">How It Works</a></li>
+          <li><a href="#governance-section" class="nav-link">Governance</a></li>
           <li><a href="#security-section" class="nav-link">Security</a></li>
-          <li><a href="#architecture-section" class="nav-link">Integrations</a></li>
-          <li><a href="#calculator-section" class="nav-link">ROI Impact</a></li>
+          <li><a href="#architecture-section" class="nav-link">Architecture</a></li>
+          <li><a href="#comparison-section" class="nav-link">Transformation</a></li>
+          <li><a href="#calculator-section" class="nav-link">ROI Calculator</a></li>
         </ul>
       </nav>
 
@@ -31,7 +31,7 @@ export function createNavbar() {
           <span>Control Center</span>
         </button>
         <button type="button" class="btn btn-primary btn-sm open-demo-modal" id="nav-demo-btn">
-          <span>Request Demo</span>
+          <span>Request Sandbox</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14m-7-7 7 7-7 7"/>
           </svg>
@@ -73,14 +73,14 @@ export function createNavbar() {
       </div>
       <ul class="mobile-nav-links">
         <li><a href="#ecosystem" class="mobile-link">Platform</a></li>
-        <li><a href="#dkyc-section" class="mobile-link">Solutions</a></li>
-        <li><a href="#journey-section" class="mobile-link">How It Works</a></li>
+        <li><a href="#governance-section" class="mobile-link">Governance</a></li>
         <li><a href="#security-section" class="mobile-link">Security</a></li>
-        <li><a href="#architecture-section" class="mobile-link">Integrations</a></li>
+        <li><a href="#architecture-section" class="mobile-link">Architecture</a></li>
+        <li><a href="#comparison-section" class="mobile-link">Transformation</a></li>
         <li><a href="#calculator-section" class="mobile-link">ROI Calculator</a></li>
       </ul>
       <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
-        <button type="button" class="btn btn-primary open-demo-modal" style="width: 100%;">Request Demo</button>
+        <button type="button" class="btn btn-primary open-demo-modal" style="width: 100%;">Request Enterprise Sandbox</button>
       </div>
     `;
     document.body.appendChild(drawer);

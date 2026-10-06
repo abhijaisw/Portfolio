@@ -2180,6 +2180,27 @@ body {
   box-shadow: 0 0 12px var(--cyan-glow);
 }
 
+/* Governance & Maker-Checker Responsiveness */
+@media (max-width: 991px) {
+  .maker-checker-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cascade-flow-steps {
+    flex-direction: column !important;
+  }
+  .cascade-flow-steps > div:nth-child(even) {
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+}
+
+.currency-toggle-wrap button {
+  transition: all 0.25s ease;
+}
+
 /* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

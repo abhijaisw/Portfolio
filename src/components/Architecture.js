@@ -4,126 +4,153 @@ export function createArchitecture() {
   section.id = 'architecture-section';
 
   const codeSnippets = {
-    curl: `curl -X POST https://api.verificore.io/v1/kyc/verify \\
+    curl: `curl -X POST https://api.verificore.io/v1/cersai/ckyc/bulk-search \\
+  -H "X-Tenant-Code: kyc_hdfc" \\
   -H "Authorization: Bearer sec_live_9482701" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "customer_id": "CUST_99182",
-    "workflow": "D_KYC_BIOMETRIC",
-    "biometric_capture": {
-      "image_base64": "data:image/jpeg;base64,...",
-      "liveness_check": true
+    "search_mode": "INDIVIDUAL_COMBINED",
+    "identifiers": {
+      "pan": "ABCDE1234F",
+      "aadhaar_last4": "8921",
+      "demographics": {
+        "full_name": "Rahul Sharma",
+        "dob": "1991-08-14"
+      }
     },
-    "document_type": "NATIONAL_PASSPORT",
-    "require_ckyc_registration": true
+    "auto_fvu_prevalidate": true,
+    "target_registry": "CERSAI_CKYCRR_2.0"
   }'`,
     node: `import { VerifiCoreClient } from '@verificore/sdk';
 
-const verificore = new VerifiCoreClient({
+const client = new VerifiCoreClient({
   apiKey: process.env.VERIFICORE_API_KEY,
+  tenantCode: 'kyc_sbi', // AmbientTenantScope Database Isolation
   environment: 'production'
 });
 
-const verification = await verificore.kyc.verify({
-  customerId: 'CUST_99182',
-  workflow: 'D_KYC_BIOMETRIC',
-  biometrics: {
-    livenessVerification: true,
-    faceMatchThreshold: 0.95
-  },
-  autoCommitToCkyc: true
+// Execute Sub-Second Aadhaar e-KYC with Real-Time Masking
+const ekycResult = await client.uidai.verifyOtp({
+  aadhaarNumber: 'XXXX-XXXX-8921',
+  otp: '918204',
+  consentTimestamp: new Date().toISOString()
 });
 
-console.log(verification.status); // "VERIFIED"
-console.log(verification.ckycRecordId); // "CKYC-IND-2026-9482"`,
+console.log(ekycResult.status); // "VERIFIED_UIDAI_ACK"
+console.log(ekycResult.kinAssigned); // "40029188291034"
+console.log(ekycResult.maskedPan); // "ABCXXXXXXF"`,
     python: `from verificore import VerifiCore
 
-client = VerifiCore(api_key="sec_live_9482701")
-
-response = client.kyc.create_verification(
-    customer_id="CUST_99182",
-    workflow="D_KYC_BIOMETRIC",
-    biometrics={
-        "liveness_check": True,
-        "anti_spoof_mode": "STRICT"
-    },
-    document_type="NATIONAL_PASSPORT",
-    auto_commit_ckyc=True
+client = VerifiCore(
+    api_key="sec_live_9482701",
+    tenant_code="kyc_icici"
 )
 
-if response.status == "VERIFIED":
-    print(f"Customer Approved. C-KYC Token: {response.ckyc_token}")`
+# Dispatch 10,000-Record CKYCRR 2.0 Batch with Headless FVU
+batch_response = client.cersai.dispatch_bulk_batch(
+    batch_file="data/onboarding_q4_mumbai.xlsx",
+    fvu_prevalidation=True,
+    sftp_auto_dispatch=True,
+    maker_id="MKR_MUM_481",
+    checker_id="CHK_MUM_019"
+)
+
+if batch_response.fvu_status == "PASSED_ZERO_ERRORS":
+    print(f"Dispatched via CERSAI SFTP. Receipt Hash: {batch_response.sha256_receipt}")`
   };
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">
-          Connects seamlessly with <br/>
-          <span class="text-gradient-cyan">your existing financial stack.</span>
+          Micro-Frontend & Microservices <br/>
+          <span class="text-gradient-cyan">Technology Architecture.</span>
         </h2>
         <p class="section-subtitle">
-          Whether you run legacy core banking engines, modern microservices, or distributed mobile field teams, VerifiCore integrates with modern REST, GraphQL, webhooks, and native mobile SDKs.
+          Engineered on Angular 21 Native Federation, YARP Gateway, .NET 10 Clean Architecture, headless Java FVU background runners, and multi-tenant PostgreSQL databases.
         </p>
       </div>
 
       <div class="architecture-container">
         <!-- Visual System Architecture Diagram -->
         <div class="glass-panel" style="padding: 32px;">
-          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan); margin-bottom:20px; display:flex; justify-content:space-between;">
-            <span>SYSTEM TOPOLOGY</span>
-            <span>REST & GRAPHQL GATEWAY</span>
+          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan); margin-bottom:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <span>MICROSERVICES TOPOLOGY</span>
+            <span>ANGULAR 21 + .NET 10 + POSTGRESQL MULTI-TENANT</span>
           </div>
 
           <!-- Architecture Visual Tree -->
-          <div style="text-align:center; margin-bottom:20px;">
-            <div style="display:inline-block; padding:12px 28px; background:linear-gradient(135deg, #0A2540, #00D4FF); border-radius:10px; color:var(--white); font-weight:700; font-family:var(--font-mono); font-size:0.95rem; box-shadow:0 0 25px rgba(0,212,255,0.25);">
-              VERIFICORE UNIFIED IDENTITY CORE
+          <div class="topology-stack" style="display:flex; flex-direction:column; gap:16px;">
+            <!-- Layer 1: Micro-Frontends -->
+            <div style="background:rgba(6,24,41,0.8); border:1px solid var(--border); border-radius:12px; padding:16px;">
+              <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan); margin-bottom:8px;">
+                MICRO-FRONTEND ECOSYSTEM (ANGULAR 21 + NATIVE FEDERATION + TAILWIND 4)
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px; font-family:var(--font-mono); font-size:0.75rem;">
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Host Shell :4200</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center; color:var(--cyan);">CKYC Hub :4203</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">D-KYC Portal :4204</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Re-KYC :4205</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Admin App :4201</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Telemetry :4202</div>
+              </div>
             </div>
-          </div>
 
-          <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; text-align:center; margin-bottom:20px;">
-            <div style="padding:8px 4px; background:rgba(10,37,64,0.6); border:1px solid var(--border); border-radius:6px; font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">
-              D-KYC
-            </div>
-            <div style="padding:8px 4px; background:rgba(10,37,64,0.6); border:1px solid var(--border); border-radius:6px; font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">
-              e-KYC
-            </div>
-            <div style="padding:8px 4px; background:rgba(10,37,64,0.6); border:1px solid var(--border); border-radius:6px; font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">
-              C-KYC
-            </div>
-            <div style="padding:8px 4px; background:rgba(10,37,64,0.6); border:1px solid var(--border); border-radius:6px; font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">
-              Re-KYC
-            </div>
-            <div style="padding:8px 4px; background:rgba(10,37,64,0.6); border:1px solid var(--border); border-radius:6px; font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">
-              Offline SDK
-            </div>
-          </div>
+            <!-- Arrow Down -->
+            <div style="text-align:center; color:var(--cyan); font-size:0.9rem; font-family:var(--font-mono); margin:-6px 0;">↓ YARP REVERSE PROXY & MULTI-TENANT CONTEXT RESOLUTION (:5000) ↓</div>
 
-          <div style="border-top:1px dashed var(--border); padding-top:16px; margin-top:16px;">
-            <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--muted); margin-bottom:12px;">
-              TARGET ENTERPRISE INTEGRATIONS
+            <!-- Layer 2: Core Microservices -->
+            <div style="background:rgba(6,24,41,0.8); border:1px solid var(--border-cyan); border-radius:12px; padding:16px;">
+              <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan); margin-bottom:8px;">
+                CORE MICROSERVICES (.NET 10 / ASP.NET CORE CLEAN ARCHITECTURE)
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:8px; font-family:var(--font-mono); font-size:0.75rem;">
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">CKYC Engine :5200</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">UIDAI e-KYC :5801</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">DigiLocker :5300</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">V-CIP Video :5400</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Re-KYC :5600</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center;">Master Data :5500</div>
+                <div style="background:#030d17; border:1px solid var(--border); padding:8px 10px; border-radius:6px; text-align:center; color:var(--cyan);">Orchestration :5800</div>
+              </div>
             </div>
-            <div style="display:flex; flex-wrap:wrap; gap:8px;">
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Core Banking Systems</span>
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Enterprise CRM (Salesforce)</span>
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Loan Origination (LOS)</span>
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Insurance Underwriting</span>
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Fintech Neo-Apps</span>
-              <span class="trust-badge-pill" style="padding:6px 14px; font-size:0.78rem;">Government Identity Gateways</span>
+
+            <!-- Layer 3: Async Background Workers & Persistence -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="background:rgba(6,24,41,0.8); border:1px solid var(--border); border-radius:12px; padding:16px;">
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan); margin-bottom:8px;">
+                  ASYNC BACKGROUND WORKERS
+                </div>
+                <div style="display:flex; flex-direction:column; gap:6px; font-family:var(--font-mono); font-size:0.75rem;">
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px;">● Headless Java FVU Runner</div>
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px;">● CERSAI SFTP Poller & Dispatcher</div>
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px;">● KIN Reconciliation Ingestion</div>
+                </div>
+              </div>
+
+              <div style="background:rgba(6,24,41,0.8); border:1px solid var(--border); border-radius:12px; padding:16px;">
+                <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan); margin-bottom:8px;">
+                  ENTERPRISE PERSISTENCE & BUS
+                </div>
+                <div style="display:flex; flex-direction:column; gap:6px; font-family:var(--font-mono); font-size:0.75rem;">
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px; color:var(--success);">● PostgreSQL (kyc_sbi, kyc_hdfc)</div>
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px;">● Redis Distributed Cache & Rate Limiter</div>
+                  <div style="background:#030d17; padding:6px 10px; border-radius:6px;">● RabbitMQ Multi-Tenant Event Bus</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Interactive API Code Explorer with Taste Skill Specular Sheen -->
-        <div class="api-code-block">
-          <div class="api-tabs-header">
-            <div class="code-tabs">
-              <button type="button" class="code-tab-btn active" data-lang="curl">cURL</button>
-              <button type="button" class="code-tab-btn" data-lang="node">Node.js</button>
-              <button type="button" class="code-tab-btn" data-lang="python">Python</button>
+        <!-- Interactive API Code Explorer -->
+        <div class="code-explorer-panel">
+          <div class="code-header-bar">
+            <div class="lang-pills" role="tablist">
+              <button type="button" class="lang-tab active" data-lang="curl" role="tab">cURL</button>
+              <button type="button" class="lang-tab" data-lang="node" role="tab">Node.js</button>
+              <button type="button" class="lang-tab" data-lang="python" role="tab">Python</button>
             </div>
-            <button type="button" class="copy-btn" id="copy-code-btn" aria-label="Copy code to clipboard">
+            <button type="button" class="copy-code-btn" id="copy-code-btn" aria-label="Copy Code snippet">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
@@ -131,18 +158,25 @@ if response.status == "VERIFIED":
               <span>Copy</span>
             </button>
           </div>
-          <pre class="code-content-pre"><code id="code-display">${codeSnippets.curl}</code></pre>
+
+          <pre class="code-body"><code id="code-snippet-display">${codeSnippets.curl}</code></pre>
+
+          <div style="padding: 16px 20px; background: rgba(3, 13, 23, 0.9); border-top: 1px solid var(--border); font-size: 0.78rem; font-family: var(--font-mono); color: var(--muted); display: flex; justify-content: space-between; align-items: center;">
+            <span>TENANT CONTEXT: X-Tenant-Code (kyc_sbi / kyc_hdfc)</span>
+            <span style="color: var(--cyan);">STRICT DATA ISOLATION ✓</span>
+          </div>
         </div>
       </div>
     </div>
   `;
 
-  // Attach tab switching and copy listeners
+  // Code Tab switching and copy handler
   setTimeout(() => {
-    const tabs = section.querySelectorAll('.code-tab-btn');
-    const display = section.querySelector('#code-display');
+    const tabs = section.querySelectorAll('.lang-tab');
+    const display = section.querySelector('#code-snippet-display');
     const copyBtn = section.querySelector('#copy-code-btn');
-    let currentLang = 'curl';
+
+    let currentSnippet = codeSnippets.curl;
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -150,33 +184,29 @@ if response.status == "VERIFIED":
         tab.classList.add('active');
 
         const lang = tab.getAttribute('data-lang');
-        currentLang = lang;
-        if (lang && codeSnippets[lang]) {
-          display.textContent = codeSnippets[lang];
-        }
+        currentSnippet = codeSnippets[lang];
+        display.textContent = currentSnippet;
       });
     });
 
-    copyBtn?.addEventListener('click', () => {
-      const code = codeSnippets[currentLang] || '';
-      navigator.clipboard.writeText(code).then(() => {
-        copyBtn.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-          <span style="color:#10B981; font-weight:600;">Copied</span>
-        `;
-        setTimeout(() => {
-          copyBtn.innerHTML = `
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-            <span>Copy</span>
-          `;
-        }, 1800);
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(currentSnippet);
+          const span = copyBtn.querySelector('span');
+          span.textContent = 'Copied!';
+          copyBtn.style.borderColor = 'var(--cyan)';
+          copyBtn.style.color = 'var(--cyan)';
+          setTimeout(() => {
+            span.textContent = 'Copy';
+            copyBtn.style.borderColor = '';
+            copyBtn.style.color = '';
+          }, 2000);
+        } catch (e) {
+          console.error(e);
+        }
       });
-    });
+    }
   }, 0);
 
   return section;

@@ -34,7 +34,7 @@ export function createDkycSection() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span><strong>Sub-Millimeter Facial Matching:</strong> 98.7% match accuracy across varying lighting, angles, and ethnic demographics.</span>
+              <span><strong>Sub-Millimeter Facial Matching:</strong> 99.7% NIST-compliant match accuracy across varying lighting, camera angles, and pan-India demographics.</span>
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -80,11 +80,11 @@ export function createDkycSection() {
             <div class="dkyc-scanner-panel">
               <div class="dkyc-status-row">
                 <span style="color:var(--muted); font-size:0.85rem;">Official Document</span>
-                <span id="doc-status" style="color:var(--success); font-weight:600; font-family:var(--font-mono); font-size:0.85rem;">✓ Verified (Passport)</span>
+                <span id="doc-status" style="color:var(--success); font-weight:600; font-family:var(--font-mono); font-size:0.85rem;">✓ Verified (DigiLocker / Aadhaar XML)</span>
               </div>
               <div class="dkyc-status-row">
                 <span style="color:var(--muted); font-size:0.85rem;">Biometric Face Match</span>
-                <span id="facematch-status" style="color:var(--cyan); font-weight:600; font-family:var(--font-mono); font-size:0.85rem;">98.7% Confidence</span>
+                <span id="facematch-status" style="color:var(--cyan); font-weight:600; font-family:var(--font-mono); font-size:0.85rem;">99.7% NIST Confidence</span>
               </div>
               <div class="dkyc-status-row">
                 <span style="color:var(--muted); font-size:0.85rem;">Passive 3D Liveness</span>
@@ -117,15 +117,15 @@ export function createDkycSection() {
     simBtn?.addEventListener('click', () => {
       badge.textContent = 'ANALYZING BIOMETRIC FRAMES...';
       badge.style.color = '#00D4FF';
-      docStatus.textContent = 'SCANNING SECURITY FOIL...';
+      docStatus.textContent = 'VALIDATING XML SIGNATURE...';
       faceMatch.textContent = 'EXTRACTING VECTOR...';
       liveness.textContent = 'CHECKING MICRO-SACCADES...';
       finalStatus.textContent = 'PROCESSING...';
       finalStatus.style.color = '#F59E0B';
 
       setTimeout(() => {
-        docStatus.textContent = '✓ Verified (Passport 300DPI)';
-        faceMatch.textContent = '99.4% Confidence (High)';
+        docStatus.textContent = '✓ Verified (DigiLocker Tamper-Proof XML)';
+        faceMatch.textContent = '99.7% Confidence (NIST FRVT Pass)';
         liveness.textContent = '✓ Passed (Depth Validated)';
         finalStatus.textContent = '● VERIFIED & APPROVED';
         finalStatus.style.color = '#10B981';

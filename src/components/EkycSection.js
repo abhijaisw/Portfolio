@@ -92,14 +92,14 @@ export function createEkycSection() {
 
               <!-- Terminal Status Log -->
               <div id="ekyc-log" style="font-family:var(--font-mono); font-size:0.75rem; color:#c4f3ff; line-height:1.6; border-top:1px dashed var(--border); padding-top:12px;">
-                <div>[AUTH] Handshake dispatched to Govt Registry Gateway</div>
-                <div style="color:var(--success);">[SUCCESS] Cryptographic signature verified by HSM-02</div>
-                <div style="color:var(--cyan);">[STATUS] Complete KYC demographics extracted instantly</div>
+                <div>[AUTH] Handshake dispatched to UIDAI e-KYC Gateway</div>
+                <div style="color:var(--success);">[SUCCESS] Tamper-proof XML signature verified by UIDAI Root CA</div>
+                <div style="color:var(--cyan);">[STATUS] Demographics parsed & Aadhaar masked (XXXX-XXXX-9014)</div>
               </div>
             </div>
 
             <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">
-              <span>REGISTRY API: v3.4 ACTIVE</span>
+              <span>UIDAI DIRECT API: v2.5 ACTIVE</span>
               <span style="color:var(--success);">99.99% UPTIME</span>
             </div>
           </div>
