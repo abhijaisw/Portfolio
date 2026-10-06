@@ -45,9 +45,16 @@ export function createNavbar() {
         </button>
       </div>
     </div>
+  `;
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-nav-drawer" id="mobile-drawer" aria-hidden="true">
+  // Create mobile drawer outside header and append to document.body
+  let drawer = document.getElementById('mobile-drawer');
+  if (!drawer) {
+    drawer = document.createElement('div');
+    drawer.className = 'mobile-nav-drawer';
+    drawer.id = 'mobile-drawer';
+    drawer.setAttribute('aria-hidden', 'true');
+    drawer.innerHTML = `
       <div class="mobile-nav-header">
         <div class="brand-logo">
           <div class="brand-mark">
@@ -57,7 +64,7 @@ export function createNavbar() {
           </div>
           <span>VerifiCore</span>
         </div>
-        <button type="button" class="mobile-menu-btn" id="mobile-close" aria-label="Close Navigation Menu">
+        <button type="button" class="mobile-menu-btn" id="mobile-close" aria-label="Close Navigation Menu" style="display:block;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -75,8 +82,9 @@ export function createNavbar() {
       <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
         <button type="button" class="btn btn-primary open-demo-modal" style="width: 100%;">Request Demo</button>
       </div>
-    </div>
-  `;
+    `;
+    document.body.appendChild(drawer);
+  }
 
   // Scroll listener for backdrop blur
   window.addEventListener('scroll', () => {
@@ -90,25 +98,44 @@ export function createNavbar() {
   // Mobile drawer logic
   setTimeout(() => {
     const toggle = nav.querySelector('#mobile-toggle');
-    const close = nav.querySelector('#mobile-close');
-    const drawer = nav.querySelector('#mobile-drawer');
-    const links = nav.querySelectorAll('.mobile-link');
+    const close = drawer?.querySelector('#mobile-close');
+    const links = drawer?.querySelectorAll('.mobile-link') || [];
+    const drawerDemoBtn = drawer?.querySelector('.open-demo-modal');
 
-    toggle?.addEventListener('click', () => {
+    function closeDrawer() {
+      drawer?.classList.remove('open');
+      drawer?.setAttribute('aria-hidden', 'true');
+    }
+
+    toggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
       drawer?.classList.add('open');
       drawer?.setAttribute('aria-hidden', 'false');
     });
 
-    close?.addEventListener('click', () => {
-      drawer?.classList.remove('open');
-      drawer?.setAttribute('aria-hidden', 'true');
+    close?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
     });
 
     links.forEach(link => {
-      link.addEventListener('click', () => {
-        drawer?.classList.remove('open');
-        drawer?.setAttribute('aria-hidden', 'true');
-      });
+      link.addEventListener('click', closeDrawer);
+    });
+
+    drawerDemoBtn?.addEventListener('click', closeDrawer);
+
+    // Close when clicking outside drawer container
+    drawer?.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        closeDrawer();
+      }
+    });
+
+    // Auto-close if resized to desktop width
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 992) {
+        closeDrawer();
+      }
     });
 
     const loginBtn = nav.querySelector('#nav-login-btn');
